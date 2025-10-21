@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Nature-Inspired Color Palette */
+    /* Main backgrounds - clean white and light */
+    --background: 0 0% 100%; /* #FFFFFF - clean white main page bg */
+    --foreground: 156 100% 14%; /* #004733 - primary text color (dark green) */
+
+    /* Card/Surface elements */
+    --card: 0 0% 100%; /* #FFFFFF - white cards */
+    --card-foreground: 156 100% 14%; /* #004733 - text on cards */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 156 100% 14%;
+
+    /* Brand Greens - Primary palette */
+    --primary: 153 42% 29%; /* #2B6A4D - primary brand green */
+    --primary-foreground: 0 0% 100%; /* white text on primary */
+    --primary-dark: 156 100% 14%; /* #004733 - primary hover/dark */
+    --primary-light: 137 26% 45%; /* #568D66 - primary light */
+
+    /* Secondary - Section backgrounds */
+    --secondary: 143 20% 90%; /* #E8F0EB - very light sage green */
+    --secondary-foreground: 156 100% 14%; /* dark text on secondary */
+
+    /* Muted elements */
+    --muted: 220 13% 95%; /* #F5F6F7 - very light gray for backgrounds */
+    --muted-foreground: 156 40% 25%; /* #28563F - readable medium-dark green */
+
+    /* Accent - Alternate sections */
+    --accent: 143 20% 90%; /* #E8F0EB - light sage green */
+    --accent-foreground: 156 100% 14%;
+
+    /* Status Colors */
+    --destructive: 0 90% 42%; /* #CB0B0A - accent red */
+    --destructive-foreground: 220 14% 96%;
+    --success: 153 42% 29%; /* Using primary green for success */
+    --success-foreground: 220 14% 96%;
+    --warning: 0 59% 69%; /* #DF8080 - warning color */
+    --warning-foreground: 355 87% 28%; /* #8E0413 - error text */
+
+    /* Borders */
+    --border: 220 13% 91%; /* #E5E7EB - light gray border */
+    --input: 220 13% 91%;
+    --ring: 153 42% 29%; /* primary green for focus rings */
+
+    --radius: 0.5rem;
+
+    /* Sidebar - light theme with green accents */
+    --sidebar-background: 0 0% 100%; /* #FFFFFF - white sidebar */
+    --sidebar-foreground: 156 100% 14%; /* dark green text */
+    --sidebar-primary: 153 42% 29%; /* #2B6A4D */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 143 20% 95%; /* very light sage for hover */
+    --sidebar-accent-foreground: 156 100% 14%;
+    --sidebar-border: 220 13% 91%; /* light gray border */
+    --sidebar-ring: 153 42% 29%;
+  }
+
+  .dark {
+    /* Dark mode with nature-inspired greens */
+    --background: 156 100% 8%; /* Darker green background */
+    --foreground: 220 14% 96%; /* Light text */
+
+    --card: 156 100% 11%; /* Slightly lighter than background */
+    --card-foreground: 220 14% 96%;
+
+    --popover: 156 100% 11%;
+    --popover-foreground: 220 14% 96%;
+
+    --primary: 137 26% 45%; /* Primary light green */
+    --primary-foreground: 156 100% 14%;
+
+    --secondary: 153 42% 20%; /* Darker secondary */
+    --secondary-foreground: 220 14% 96%;
+
+    --muted: 153 42% 20%;
+    --muted-foreground: 143 18% 70%;
+
+    --accent: 153 42% 20%;
+    --accent-foreground: 220 14% 96%;
+
+    --destructive: 355 87% 28%; /* Error red for dark mode */
+    --destructive-foreground: 220 14% 96%;
+
+    --border: 153 42% 20%;
+    --input: 153 42% 20%;
+    --ring: 137 26% 45%;
+    --sidebar-background: 156 100% 10%;
+    --sidebar-foreground: 220 14% 96%;
+    --sidebar-primary: 153 42% 29%;
+    --sidebar-primary-foreground: 220 14% 96%;
+    --sidebar-accent: 153 42% 20%;
+    --sidebar-accent-foreground: 143 18% 70%;
+    --sidebar-border: 153 42% 20%;
+    --sidebar-ring: 137 26% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
