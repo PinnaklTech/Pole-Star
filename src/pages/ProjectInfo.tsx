@@ -5,6 +5,8 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { PageContainer } from "@/components/layout/PageContainer";
 
 export default function ProjectInfo() {
   const navigate = useNavigate();
@@ -25,22 +27,15 @@ export default function ProjectInfo() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
-      <div className="space-y-2">
-        <h2 className="text-3xl font-bold text-foreground">Project Information</h2>
-        <p className="text-muted-foreground">
-          Enter basic project details to begin the steel transmission pole design process.
-        </p>
-      </div>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Project Details</CardTitle>
-          <CardDescription>
+    <PageContainer>
+      <Card className="border-2 shadow-lg">
+        <CardHeader className="bg-gradient-to-r from-primary/5 to-primary/10 border-b">
+          <CardTitle className="text-2xl">Project Details</CardTitle>
+          <CardDescription className="text-base">
             Provide the fundamental information for this transmission pole design project.
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-6 pt-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <Label htmlFor="projectName">Project Name</Label>
@@ -97,13 +92,14 @@ export default function ProjectInfo() {
             </Select>
           </div>
 
-          <div className="flex justify-end pt-4">
-            <Button onClick={handleNext} className="px-8">
+          <div className="flex justify-end pt-4 border-t">
+            <Button onClick={handleNext} className="px-8 gap-2" size="lg">
               Next: Environmental Data
+              <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
         </CardContent>
       </Card>
-    </div>
+    </PageContainer>
   );
 }

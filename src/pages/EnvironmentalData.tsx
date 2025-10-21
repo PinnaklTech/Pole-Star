@@ -5,7 +5,8 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight, Wind, Snowflake } from "lucide-react";
+import { PageContainer } from "@/components/layout/PageContainer";
 
 export default function EnvironmentalData() {
   const navigate = useNavigate();
@@ -22,18 +23,14 @@ export default function EnvironmentalData() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
-      <div className="space-y-2">
-        <h2 className="text-3xl font-bold text-foreground">Environmental Data</h2>
-        <p className="text-muted-foreground">
-          Define environmental loading conditions according to ASCE/SEI 48-19 requirements.
-        </p>
-      </div>
-
+    <PageContainer maxWidth="6xl">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card>
-          <CardHeader>
-            <CardTitle>Wind Loading</CardTitle>
+        <Card className="border-2 shadow-lg">
+          <CardHeader className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 border-b">
+            <div className="flex items-center gap-2">
+              <Wind className="h-5 w-5 text-primary" />
+              <CardTitle>Wind Loading</CardTitle>
+            </div>
             <CardDescription>
               Critical wind parameters for structural analysis
             </CardDescription>
@@ -66,9 +63,12 @@ export default function EnvironmentalData() {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Ice & Temperature</CardTitle>
+        <Card className="border-2 shadow-lg">
+          <CardHeader className="bg-gradient-to-r from-cyan-50 to-cyan-100 dark:from-cyan-950 dark:to-cyan-900 border-b">
+            <div className="flex items-center gap-2">
+              <Snowflake className="h-5 w-5 text-cyan-600" />
+              <CardTitle>Ice & Temperature</CardTitle>
+            </div>
             <CardDescription>
               Additional environmental loading factors
             </CardDescription>
@@ -112,29 +112,30 @@ export default function EnvironmentalData() {
         </Card>
       </div>
 
-      <Card>
-        <CardHeader>
+      <Card className="border-2 shadow-lg">
+        <CardHeader className="bg-gradient-to-r from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 border-b">
           <CardTitle>Climate Map Integration</CardTitle>
           <CardDescription>
             Geographic climate data will be integrated in future versions
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <div className="h-64 bg-muted rounded-lg flex items-center justify-center border-2 border-dashed border-border">
+        <CardContent className="pt-6">
+          <div className="h-64 bg-gradient-to-br from-muted to-muted/50 rounded-lg flex items-center justify-center border-2 border-dashed border-border">
             <p className="text-muted-foreground">Interactive climate map placeholder</p>
           </div>
         </CardContent>
       </Card>
 
       <div className="flex justify-between pt-4">
-        <Button variant="outline" onClick={() => navigate("/")}>
+        <Button variant="outline" onClick={() => navigate("/")} size="lg">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back
         </Button>
-        <Button onClick={() => navigate("/geometry")}>
+        <Button onClick={() => navigate("/geometry")} size="lg" className="gap-2">
           Next: Pole Geometry
+          <ArrowRight className="h-4 w-4" />
         </Button>
       </div>
-    </div>
+    </PageContainer>
   );
 }
